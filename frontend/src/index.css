@@ -1,0 +1,311 @@
+@import url("https://fonts.googleapis.com/css2?family=Noto+Serif:wght@400;700&display=swap");
+
+body {
+  max-width: 1200px;
+  margin: 20px auto;
+  padding: 0 20px;
+  font-family: "Noto Serif", serif;
+  max-width: 1200px;
+}
+
+a,
+p,
+h1,
+h2,
+h3,
+ul {
+  margin: 0;
+  padding: 0;
+  text-decoration: none;
+  color: #222;
+}
+
+/* nav & footer styles */
+nav {
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 60px;
+  padding-bottom: 10px;
+  border-bottom: 1px solid #ddd;
+  text-transform: uppercase;
+}
+nav ul {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-end;
+}
+nav li {
+  list-style-type: none;
+  margin-left: 25px;
+  padding: 5px;
+}
+nav h1 {
+  font-size: 3em;
+}
+nav p {
+  color: #777;
+  font-weight: 300;
+}
+nav a {
+  text-decoration: none;
+  margin: 0 1rem;
+  position: relative;
+  font-size: 1.2rem;
+  transition: color 0.3s ease;
+}
+nav a::after {
+  content: "";
+  position: absolute;
+  bottom: -5px;
+  left: 50%;
+  width: 0;
+  height: 2px;
+  background-color: crimson;
+  transition: width 0.3s ease, left 0.3s ease;
+}
+
+nav a:hover::after {
+  width: 100%;
+  left: 0;
+}
+
+footer {
+  color: #777;
+  text-align: center;
+  margin: 80px auto 20px;
+}
+h2 {
+  margin-bottom: 40px;
+}
+h3 {
+  text-transform: capitalize;
+  margin-bottom: 8px;
+}
+.content {
+  margin-left: 20px;
+}
+
+/* index styles */
+.blog-item {
+  display: block;
+  margin: 40px 0;
+  padding-left: 30px;
+  border-left: 6px solid crimson;
+}
+
+/* details styles */
+
+/* Details Section Styling */
+.details {
+  position: relative;
+  background-color: #fff;
+  padding: 30px;
+  border-radius: 15px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  margin-top: 20px;
+  min-height: 400px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-between;
+}
+
+/* Timestamp Styling */
+.details p i {
+  position: absolute;
+  bottom: 10px;
+  right: 10px;
+  color: #999;
+  font-style: italic;
+  font-size: 0.8rem;
+}
+
+/* Header Styling */
+.details h1 {
+  font-size: 2.8rem;
+  margin-bottom: 20px;
+  text-align: center;
+  text-transform: uppercase;
+  border-bottom: 3.5px solid crimson;
+}
+
+/* Content Styling */
+.details p {
+  font-size: 1.1rem;
+  color: #555;
+  line-height: 1.8;
+  margin-bottom: 15px;
+}
+
+/* Buttons */
+.buttons {
+  display: flex;
+  justify-content: space-around;
+  margin-top: 30px;
+}
+
+.update,
+.delete {
+  border-style: none;
+  padding: 12px 25px;
+  border-radius: 30px;
+  font-size: 1rem;
+  font-weight: bold;
+  transition: all 0.3s ease;
+}
+
+.update {
+  background-color: #34c759;
+  color: white;
+}
+
+.update:hover {
+  background-color: #28a745;
+  transform: scale(1.05);
+}
+
+.delete {
+  background-color: #ff3b30;
+  color: white;
+}
+
+.delete:hover {
+  background-color: #e02e24;
+  transform: scale(1.05);
+}
+
+/* create styles */
+.blog form {
+  max-width: 400px;
+  margin: 0 auto;
+}
+.blog input,
+.blog textarea {
+  display: block;
+  width: 100%;
+  margin: 10px 0;
+  padding: 8px;
+}
+.blog label {
+  display: block;
+  margin-top: 24px;
+}
+textarea {
+  height: 120px;
+}
+.blog button {
+  margin-top: 20px;
+  background: crimson;
+  color: white;
+  padding: 6px;
+  border: 0;
+  font-size: 1.2em;
+  cursor: pointer;
+}
+.blog .auth {
+  background-color: dodgerblue;
+}
+
+/* Media Queries for Responsiveness */
+
+/* For tablets and below (max-width: 768px) */
+@media (max-width: 768px) {
+  nav {
+    flex-direction: column;
+    align-items: center;
+  }
+
+  nav ul {
+    flex-direction: column;
+    align-items: center;
+  }
+
+  nav li {
+    margin-left: 0;
+    margin-bottom: 10px;
+  }
+
+  nav h1 {
+    font-size: 2.5em;
+  }
+
+  .details {
+    padding: 20px;
+    min-height: auto;
+  }
+
+  .details h1 {
+    font-size: 2.2rem;
+  }
+
+  .buttons {
+    flex-direction: column;
+    margin-top: 20px;
+  }
+
+  .update,
+  .delete {
+    width: 100%;
+    margin: 5px 0;
+  }
+
+  .blog form {
+    width: 100%;
+    max-width: 100%;
+  }
+
+  .blog input,
+  .blog textarea {
+    padding: 12px;
+  }
+
+  .blog button {
+    width: 100%;
+    font-size: 1.2em;
+  }
+}
+
+/* For smaller mobile screens (max-width: 480px) */
+@media (max-width: 480px) {
+  nav {
+    padding: 10px;
+  }
+
+  nav h1 {
+    font-size: 2rem;
+  }
+
+  .details h1 {
+    font-size: 1.8rem;
+  }
+
+  .details p {
+    font-size: 1rem;
+  }
+
+  .buttons {
+    flex-direction: column;
+    margin-top: 20px;
+  }
+
+  .update,
+  .delete {
+    width: 100%;
+    margin: 5px 0;
+  }
+
+  .blog form {
+    width: 100%;
+    max-width: 100%;
+  }
+
+  .blog input,
+  .blog textarea {
+    padding: 12px;
+  }
+
+  .blog button {
+    width: 100%;
+    font-size: 1.2em;
+  }
+}
