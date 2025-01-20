@@ -31,7 +31,7 @@ Ensure you have the following installed:
 1. **Clone the Repository**
    ```bash
    git clone https://github.com/KUSHAL-KARKI/Blog-App
-   cd mern-blog-app
+   cd Blog-App
    ```
 
 2. **Install Dependencies**
@@ -62,13 +62,13 @@ Ensure you have the following installed:
    - Start the server:
      ```bash
      cd backend
-     npm start
+     npm run dev
      ```
 
    - Start the client:
      ```bash
      cd ../frontend
-     npm start
+     npm npm run dev
      ```
 
 5. **Open in Browser**
