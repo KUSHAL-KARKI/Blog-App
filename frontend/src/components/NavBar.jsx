@@ -25,12 +25,13 @@ const NavBar = () => {
           {authUser ? (
             <>
               <li>
-                <Link to="/" >Home</Link>
+                <Link to="/">Home</Link>
               </li>
-
-              <li>
-                <Link to="/create">Add Blog</Link>
-              </li>
+              { authUser==="admin" &&
+                <li>
+                  <Link to="/create">Add Blog</Link>
+                </li>
+              }
 
               <li>
                 <Link onClick={handleLogout}>Logout</Link>
