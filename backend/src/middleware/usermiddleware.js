@@ -1,11 +1,12 @@
 import jwt from "jsonwebtoken";
+import { ForbiddenError, UnauthorizedError } from "./errorHandler";
 
 export const authenticate = (req, res, next) => {
   // Extract token from cookies
   const token = req.cookies.token;
 
   if (!token) {
-    return res.status(401).json({ message: "Unauthorized" });
+    throw new UnauthorizedError("Authentication token is missing and unauthorized");
   }
 
   try {
@@ -13,13 +14,13 @@ export const authenticate = (req, res, next) => {
     req.user = decoded; // Add user info to request object
     next(); // Continue with the next middleware or route handler
   } catch (error) {
-    return res.status(401).json({ message: "Invalid token" });
+    throw new UnauthorizedError("Invalid or expired token");
   }
 };
 
 export const authorizeAdmin = (req, res, next) => {
   if (req.user.role !== "admin") {
-    return res.status(403).json({ message: "Forbidden: Admins only" });
+    throw new ForbiddenError("Access denied: Admins only");
   }
   next();
 };
