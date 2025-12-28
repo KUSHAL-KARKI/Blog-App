@@ -7,16 +7,17 @@ const Signup = () => {
   const [username, setUsername] = useState("");
   const [password, setPassword] = useState("");
   const navigate = useNavigate();
-  const {signup} = useSignup();
+  const { signup } = useSignup();
   const dispatch = useDispatch();
 
   const handleSignup = async (e) => {
     e.preventDefault();
-    await signup(username, password);
-    dispatch(setAuthUser(username));
-    navigate("/");
+    const data = await signup(username, password);
+    if (data) {
+      dispatch(setAuthUser(username));
+      navigate("/");
+    }
   };
-
   return (
     <div className="blog">
       <form onSubmit={handleSignup}>
@@ -35,7 +36,9 @@ const Signup = () => {
           value={password}
           onChange={(e) => setPassword(e.target.value)}
         />
-        <button type="submit" className="auth">Signup</button>
+        <button type="submit" className="auth">
+          Signup
+        </button>
       </form>
     </div>
   );

@@ -11,8 +11,8 @@ const useSignup = () => {
         credentials: "include",
       });
       const data = await response.json();
-      if (data.error) {
-        throw new Error(error.data);
+      if (!response.ok || !data.success) {
+        throw new Error(data.message || "Signup failed");
       }
     } catch (error) {
       toast.error(error.message);

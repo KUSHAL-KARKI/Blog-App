@@ -26,11 +26,11 @@ const NavBar = () => {
               <li>
                 <Link to="/">Home</Link>
               </li>
-              { authUser==="admin" &&
+              {authUser.role === "admin" && (
                 <li>
                   <Link to="/create">Add Blog</Link>
                 </li>
-              }
+              )}
 
               <li>
                 <Link onClick={handleLogout}>Logout</Link>

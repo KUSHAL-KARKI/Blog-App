@@ -2,10 +2,12 @@ import { useParams } from "react-router-dom";
 import { toast } from "sonner";
 const useBlogDetail = () => {
   const { id } = useParams();
-  const blogDetail = async (title, content) => {
+  const blogDetail = async () => {
     try {
       const response = await fetch(`http://localhost:3000/api/blogs/${id}`, {
         credentials: "include",
+        method: "GET",
+    
       });
       const data = await response.json();
       if (data.error) {

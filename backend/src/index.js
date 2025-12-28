@@ -18,6 +18,14 @@ app.use(
 app.use(cookieParser());
 app.use(express.json());
 app.use(bodyParser.urlencoded({ extended: true }));
+
+const PORT = process.env.PORT || 8080;
+const MONGODB_URI = process.env.MONGODB_URI;
+
+// Mount the routes with a base path
+app.use("/api/blogs", blogRoutes);
+
+// Error handler middleware MUST be after routes
 app.use((err, req, res, next) => {
   const status = err.status || 500;
 
@@ -28,12 +36,6 @@ app.use((err, req, res, next) => {
     details: err.details || null,
   });
 });
-
-const PORT = process.env.PORT || 8080;
-const MONGODB_URI = process.env.MONGODB_URI;
-
-// Mount the routes with a base path
-app.use("/api/blogs", blogRoutes);
 
 mongoose
   .connect(MONGODB_URI)

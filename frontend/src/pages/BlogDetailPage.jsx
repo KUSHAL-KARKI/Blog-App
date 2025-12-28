@@ -39,7 +39,7 @@ const BlogDetailPage = () => {
         </p>
       </div>
 
-      {authUser==="admin" &&
+      {authUser.role ==="admin" &&
         <div className="buttons">
           <Link to={`/blogs/${blog._id}/edit`}>
             <button className="update">Edit Blog</button>

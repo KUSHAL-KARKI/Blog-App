@@ -1,4 +1,4 @@
-import  { useState } from "react";
+import { useState } from "react";
 import { useNavigate } from "react-router-dom";
 import useLogin from "../hooks/useLogin";
 import { useDispatch } from "react-redux";
@@ -12,9 +12,12 @@ const Login = () => {
 
   const handleLogin = async (e) => {
     e.preventDefault();
-    await login(username, password);
-    dispatch(setAuthUser(username));
-    navigate("/");
+    const data = await login(username, password);
+
+    if (data) {
+      dispatch(setAuthUser({ username: username, role: data.role }));
+      navigate("/");
+    }
   };
 
   return (

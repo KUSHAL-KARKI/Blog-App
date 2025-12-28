@@ -1,4 +1,3 @@
-
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 import NavBar from "./components/NavBar";
 import Home from "./pages/Home";
@@ -7,8 +6,11 @@ import BlogDetailPage from "./pages/BlogDetailPage";
 import BlogUpdatePage from "./pages/BlogUpdatePage";
 import Login from "./components/Login";
 import Signup from "./components/Signup";
+import useVerifyAuth from "./hooks/useVerifyAuth";
 
 const App = () => {
+  useVerifyAuth(); // Verify auth on app load
+
   return (
     <BrowserRouter>
       <NavBar />
