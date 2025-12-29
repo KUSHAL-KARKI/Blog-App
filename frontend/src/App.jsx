@@ -9,7 +9,7 @@ import Signup from "./components/Signup";
 import useVerifyAuth from "./hooks/useVerifyAuth";
 
 const App = () => {
-  useVerifyAuth(); // Verify auth on app load
+  useVerifyAuth(); 
 
   return (
     <BrowserRouter>
